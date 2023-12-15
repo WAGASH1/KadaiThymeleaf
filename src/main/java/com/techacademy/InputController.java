@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class InputController {
 
-    @GetMapping("/input")
-    public String getInput() {
-        return "input";
-    }
+    @GetMapping({"/input", "/input/previous/{val}"})
+    public String getInput(@PathVariable(required = false) String val, Model model) {
+        if (val != null ) {
+            String previousMessage = "前回入力された値は 「" + val + "」 でした。";
+            model.addAttribute("previous", previousMessage);
+        }
 
-    @GetMapping("input/previous/{val}")
-    public String getOutput(@PathVariable String val, Model model) {
-        String previousMessage = "前回入力された値は 「" + val + "」 でした。";
+        else {
 
-        model.addAttribute("previous", previousMessage);
+        }
         return "input";
     }
 
