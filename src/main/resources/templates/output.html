@@ -8,6 +8,6 @@
     <h1>Thymeleaf課題</h1>
     <h2>入力画面</h2>
     <p th:text="'入力された値は「' + ${val} + '」です。'"></p>
-    <p><a th:href="@{/previous/{aid}(aid=${val})}">入力画面へ戻る</a></p>
+    <p><a th:href="@{'/input/previous/' + ${val}}">入力画面へ戻る</a></p>
 </body>
 </html>
