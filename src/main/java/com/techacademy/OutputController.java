@@ -15,6 +15,4 @@ public class OutputController {
 
         return "output";
     }
-
-
 }
